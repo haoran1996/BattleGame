@@ -26,7 +26,6 @@ public abstract class Player extends Role{
     //获取人物属性
     public void getAttributes(){
         refreashAttributes();
-        System.out.println();
         System.out.println("******************人物属性******************");
         System.out.println("姓名:"+name+"  职业:"+type+"  等级:"+level+"  血量上限:"+max_health+"  攻击力:"
                 +attack_power+"("+basic_attack_power+"+"+weapon.getAttack_power()+")"+"  防御力:"+defend_power);
@@ -77,18 +76,22 @@ public abstract class Player extends Role{
     //战斗获胜
     public void battle_win(Monster monster) throws InterruptedException {
         int templevel = level + monster.getExperience();
-        {
-            if(templevel < 30){
-                setLevel(level+monster.getExperience());
-                System.out.println("你杀死了" + monster.getName()+"，随着一道金光，你的等级提升了"+monster.getExperience()+"级，你开始搜刮战利品");
-            }else if(templevel == 30 || templevel == 31 || templevel == 32){
-                setLevel(30);
-                System.out.println("你杀死了" + monster.getName()+"，随着一道金光，你升到了满级30级，你开始搜刮战利品");
-            }else if(templevel == 33){
-                System.out.println("恭喜你，成功击杀了Boss天之驱逐者，通关了本游戏！");
-            }
+        if(templevel < 30){
+            setLevel(level+monster.getExperience());
+            System.out.println("你杀死了" + monster.getName()+"，随着一道金光，你的等级提升了"+monster.getExperience()+"级，你开始搜刮战利品");
+            getEquipment(monster);
+        }else if(templevel == 30 || templevel == 31 || templevel == 32){
+            setLevel(30);
+            System.out.println("你杀死了" + monster.getName()+"，你已经达到了满级(30级)，无法再升级，你开始搜刮战利品");
+            getEquipment(monster);
+        }else if(templevel == 33){
+            setLevel(33);
+            System.out.println("恭喜你，成功击杀了Boss天之驱逐者，通关了本游戏！");
         }
 
+    }
+
+    public void getEquipment(Monster monster) throws InterruptedException {
         Thread.sleep(500);
         Equipment equipment = monster.dropEquipment();
         if(equipment == null){
@@ -101,9 +104,9 @@ public abstract class Player extends Role{
             Thread.sleep(500);
         }
     }
+
     //战斗失败
     public void battle_lose() throws InterruptedException {
-        Thread.sleep(500);
         if(level == 0){
             level = -1;
             System.out.println("你的等级小于0，你倒下时还期待着会有人能够再救你一次，但是这次没有那么幸运，安息吧。");

@@ -50,7 +50,20 @@ public class Game {
         if(player.getLevel() == -1){
             System.out.println("生的伟大，死的光荣！");
         }else if(player.getLevel() == 33){
-            System.out.println("阿拉德的旅程还未结束，更多的挑战在等着你，敬请期待！");
+            Thread.sleep(500);
+            System.out.print("是否重新开始游戏(是/否):");
+            Scanner sc = new Scanner(System.in);
+            String str = sc.nextLine();
+            while(!str.equals("是")&&!str.equals("否")){
+                System.out.print("请输入（是/否）：");
+                str = sc.nextLine();
+            }
+            if(str.equals("是")){
+                startGame(player);
+            }else if (str.equals("否")){
+                System.out.println("阿拉德的旅程还未结束，更多的挑战在等着你，敬请期待！");
+                sc.close();
+            }
         }
 
     }
@@ -74,6 +87,8 @@ public class Game {
 
     //随机刷新怪物
     public static Monster meetMonster(Player player) throws InterruptedException {
+        Thread.sleep(500);
+        System.out.println();
         Thread.sleep(500);
         player.getAttributes();
         Thread.sleep(500);
