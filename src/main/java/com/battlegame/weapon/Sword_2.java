@@ -18,7 +18,7 @@ public class Sword_2  extends Weapon {
 
     @Override
     public int calculate_weapon_attack(int level) {
-        this.attack_power = 49 + 9 * level;
+        this.attack_power = 52 + 8 * level;
         return attack_power;
     }
 }

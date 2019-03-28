@@ -55,13 +55,13 @@ public class warrior extends Player {
 
     }
     public int calculate_attack_power(){
-        this.basic_attack_power = 30 + 4 * level;
+        this.basic_attack_power = 35 + 3 * level;
         this.attack_power = basic_attack_power + this.weapon.getAttack_power();
         return attack_power;
     }
     //计算血量上限
     public int calculate_max_health(){
-        this.max_health = 50 * this.level + 250;
+        this.max_health = 50 * this.level + 300;
         return max_health;
     }
     @Override

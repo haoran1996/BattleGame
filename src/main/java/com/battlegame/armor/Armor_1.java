@@ -18,7 +18,7 @@ public class Armor_1 extends Armor {
 
     @Override
     public int calculate_armor_defend(int level) {
-        this.defend_power = 15 + 3 *level;
+        this.defend_power = 17 + 3 *level;
         return defend_power;
     }
 

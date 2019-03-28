@@ -8,8 +8,8 @@ public class Monster_3 extends Monster {
         super();
         this.name = "天之驱逐者";
         this.level = level;
-        this.attack_power = 4000 * level;
-        this.max_health = 450 * level;
+        this.attack_power = 4000;
+        this.max_health = 420;
         temp_health = max_health;
         this.experience = 3;
     }

@@ -53,17 +53,17 @@ public class Mage extends Player {
     }
 
     public int calculate_attack_power(){
-        this.basic_attack_power = 25 + 3 * level;
+        this.basic_attack_power = 25 + 4 * level;
         this.attack_power = basic_attack_power + this.weapon.getAttack_power();
         return attack_power;
     }
     //计算血量上限
     public int calculate_max_health(){
-        this.max_health = 40 * this.level + 200;
+        this.max_health = 40 * this.level + 260;
         return max_health;
     }
     @Override
-    //法师攻击时有40%的几率释放技能一，造成150%伤害，有20%的几率释放技能二，造成200%的伤害，
+    //法师攻击时有30%的几率释放技能一，造成150%伤害，有30%的几率释放技能二，造成200%的伤害，
     //有10%的几率释放技能三，造成250%的伤害，有10%的几率miss。
     public void makeAttack(Role role) throws InterruptedException {
 //        System.out.print(this.name + "向" + role.getName() + "发动攻击，");
@@ -77,12 +77,12 @@ public class Mage extends Player {
                 role.getAttack(attack_power);
                 break;
             }
-            case 2: case 3: case 4: case 5:{
+            case 2: case 3: case 4: {
                 System.out.print("["+this.name+"]" + "对" + "["+role.getName()+"]" + "使出小火球，");
                 role.getAttack((int) (attack_power * 1.5));
                 break;
             }
-            case 6: case 7: {
+            case 5: case 6: case 7: {
                 System.out.print("["+this.name+"]"+ "法杖一热，对" + "["+role.getName()+"]" + "使出火龙术，");
                 role.getAttack(attack_power * 2);
                 break;

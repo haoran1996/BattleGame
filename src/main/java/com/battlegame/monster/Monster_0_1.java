@@ -22,7 +22,7 @@ public class Monster_0_1 extends Monster {
 
     @Override
     public String getintroduction(){
-        return "#怪物属性# 哥布林(最低级怪物，50%几率爆出装备) 等级:"+level+" 血量上限:"+ max_health+" 攻击力:"+attack_power+" 经验值:+"+experience;
+        return "#怪物属性# 哥布林(最低级怪物，60%几率爆出装备) 等级:"+level+" 血量上限:"+ max_health+" 攻击力:"+attack_power+" 经验值:+"+experience;
     }
 
     @Override

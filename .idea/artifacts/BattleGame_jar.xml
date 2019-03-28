@@ -1,7 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="BattleGame:jar">
+  <artifact type="jar" build-on-make="true" name="BattleGame:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/BattleGame_jar</output-path>
     <root id="archive" name="BattleGame.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="BattleGame" />
     </root>
   </artifact>

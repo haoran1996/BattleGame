@@ -7,7 +7,7 @@ import com.battlegame.factory.PlayerFactory;
 import static com.battlegame.Game.GameInit;
 import static com.battlegame.Game.startGame;
 
-public class Start {
+public class Main {
     public static void main(String args[]) throws InterruptedException {
         //重定向
 //        reDirect rd=new reDirect();

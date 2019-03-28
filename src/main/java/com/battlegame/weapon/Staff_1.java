@@ -18,7 +18,7 @@ public class Staff_1 extends Weapon {
 
     @Override
     public int calculate_weapon_attack(int level) {
-        this.attack_power = 37 + 6 * level;
+        this.attack_power = 33 + 7 * level;
         return attack_power;
     }
 
